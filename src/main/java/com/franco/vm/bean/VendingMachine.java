@@ -53,33 +53,33 @@ public class VendingMachine implements VendingMachineI {
             //update the denomination in the VM's cashdrawer
             cashDrawerBeanI.update(cashDrawer);
         }
-        //convert money denominations to value
-        BigDecimal userAmount = moneyConverterBeanI.getMoneyValueFromDenominations(denominations);
-        BigDecimal requiredAmount = this.calculateRequiredAmount(product, quantity);
-        BigDecimal balance = userAmount.subtract(requiredAmount);
+        //convert money denominations to get it's value
+        BigDecimal enteredAmount = moneyConverterBeanI.getMoneyValueFromDenominations(denominations);
+        BigDecimal saleAmount = this.calculateRequiredAmount(product, quantity);
+        BigDecimal balance = enteredAmount.subtract(saleAmount);
 
-        if (userAmount.compareTo(requiredAmount) < 0) {
-            dispenseMoney(denominations);
+        if (enteredAmount.compareTo(saleAmount) < 0) {
+            refundCustomerMoney(denominations);
             throw new InsufficientAmountException();
         }
         //check if the quantity required is available in stock
         if (stockBeanI.getStockBalance(product) < quantity) {
-            dispenseMoney(denominations);
+            refundCustomerMoney(denominations);
             throw new InsufficeintProductQuantityException();
         }
 
-        //add denominations supplied to the VM cash drawer
+        //add money denominations supplied by customer to the vending Machine cash drawer
         Sale sale = new Sale();
         sale.setDate(new Date());
-        sale.setAmount(requiredAmount);
+        sale.setAmount(saleAmount);
         sale.setProduct(product);
         sale.setQuantity(quantity);
 
-        if (userAmount.compareTo(requiredAmount) > 0 && !giveChange(balance).isEmpty()) {
+        if (enteredAmount.compareTo(saleAmount) > 0 && !giveChange(balance).isEmpty()) {
 
-            dispenseMoney(giveChange(balance));
+            refundCustomerMoney(giveChange(balance));
         }
-        // record the sale transaction to db
+        // add/record sale transaction to database
         saleBeanI.makeSale(sale);
 
         Stock stock = stockBeanI.getStockForProduct(product);
@@ -88,16 +88,6 @@ public class VendingMachine implements VendingMachineI {
         return true;
     }
 
-    private void dispenseMoney(Map<Denomination, Integer> denominations) {
-        for (Map.Entry m : denominations.entrySet()) {
-            Denomination denomination = Denomination.valueOf(m.getKey().toString());
-            CashDrawer cashDrawer = cashDrawerBeanI.findByDenomination(denomination);
-            cashDrawer.setCount(cashDrawer.getCount() - (Integer) m.getValue());
-            //update the denomination in the VM's cashdrawer
-            cashDrawerBeanI.update(cashDrawer);
-
-        }
-    }
 //        persist sale to db
 
 //    boolean status = saleBeanI.makeSale();
@@ -112,9 +102,17 @@ public class VendingMachine implements VendingMachineI {
 //
 //
 //
-//    private void refundCustomerMoney(Map<Denomination, Integer> denominations) {        //dispense
-//        System.out.println(denominations);
-//    }
+    private void refundCustomerMoney(Map<Denomination, Integer> denominations) {        //dispense
+        System.out.println(denominations);
+        for (Map.Entry m : denominations.entrySet()) {
+            Denomination denomination = Denomination.valueOf(m.getKey().toString());
+            CashDrawer cashDrawer = cashDrawerBeanI.findByDenomination(denomination);
+            cashDrawer.setCount(cashDrawer.getCount() - (Integer) m.getValue());
+            //update the denomination in the vending machine cashdrawer
+            cashDrawerBeanI.update(cashDrawer);
+
+        }
+    }
 
     private Map<Denomination, Integer> giveChange(BigDecimal amount) {
         Map<Denomination, Integer> map = moneyConverterBeanI.getDenominationsForMoney(amount);
