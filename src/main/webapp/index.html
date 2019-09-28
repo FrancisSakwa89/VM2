@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+<!-- Le styles -->
+<style type="text/css">
+body {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #f5f5f5;
+}
+
+
+.form-signin .form-signin-heading,.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],.form-signin input[type="password"] {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+
+#chatroom {
+	font-size: 16px;
+	height: 40px;
+	line-height: 40px;
+	width: 300px;
+}
+
+.received {
+	width: 160px;
+	font-size: 10px;
+}
+</style>
+
+<script>
+	var wsocket;
+	var serviceLocation = "ws://localhost:8080/VendMachine2/chat/";
+	var $nickName;
+	var $message;
+	var $chatWindow;
+	var phone = '';
+	var $status;
+
+	function onMessageReceived(event) {
+		var msg = JSON.parse(event.data); // native API
+		var $messageLine = $('<tr><td class="received">'+ msg.received
+				+ '</td><td class="user label label-info">'+"from: " + msg.from
+				+ '</td><td class="message badge">' + msg.content
+				+ '</td><td class="message badge">' + msg.status
+				+ '</td></tr>');
+		$chatWindow.append($messageLine);
+	}
+    function sendMessage() {
+        var msg = '{"content":"' + $message.val() +  '", "from":"'+
+            phone + '", "received":""}';
+        wsocket.send(msg);
+        $message.val('').focus();
+    }
+
+
+	function connectToChatserver() {
+		phone = $('#phone').val();
+		wsocket = new WebSocket(serviceLocation + phone);
+		wsocket.onmessage = onMessageReceived;
+        alert("connection opened... for "+ phone)
+	}
+
+	function leaveChat() {
+		wsocket.close();
+		$chatWindow.empty();
+		$('.chat-wrapper').hide();
+		$('.chat-signin').show();
+		$nickName.focus();
+	}
+
+	$(document).ready(function() {
+		$nickName = $('#name');
+		$message = $('#content');
+		$chatWindow = $('#response');
+		$('.chat-wrapper').hide();
+		$message.focus();
+		// $ph.focus();
+
+
+		$('#enterRoom').click(function(evt) {
+			evt.preventDefault();
+			connectToChatserver();
+			$('.chat-wrapper h2').text('Welcome '+" your phone number is: " + phone+" and your name is: "+ $nickName.val());
+			$('.chat-signin').hide();
+			$('.chat-wrapper').show();
+			$message.focus();
+			// $ph.focus();
+
+		});
+		$('#do-chat').submit(function(evt) {
+			evt.preventDefault();
+			sendMessage()
+		});
+		
+		$('#leave-room').click(function(){
+			leaveChat();
+			alert("connection closed... for "+ phone)
+		});
+	});
+
+
+</script>
+
+
+<body>
+	<br>
+    <h2>Websocket Chat sign in</h2>
+    <div class="chat-signin">
+	<form action="" id="form-signin" method="post" style="margin-left: 35%;width:50%">
+
+		<div class="group">
+			<input type="text" id="name" required name="name">
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label>Your Name</label>
+		</div>
+
+		<div class="group">
+			<input type="number" id="phone" required name="phone">
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label>Phone Number</label>
+		</div>
+
+		<button class="btn-save btn btn-success btn-sm" id="enterRoom" type="submit">Sign In</button>
+		<button class="btn-cancel btn btn-danger btn-sm" type="reset">Cancel</button>
+	</form>
+    </div>
+    <!-- /container -->
+
+    <div class="container chat-wrapper">
+    <form id="do-chat">
+    <h2 class="alert alert-success"></h2>
+    <table id="response" class="table table-bordered"></table>
+    <fieldset>
+    <legend>Enter your message..</legend>
+    <div class="controls">
+        <input type="number" class="input-block-level" placeholder="Your phone number" id="phone" style="height:60px"/>
+        <input type="text" class="input-block-level" placeholder="Your message..." id="content" style="height:60px"/>
+        <br>
+    <button type="submit" class="btn-save btn btn-primary btn-sm"
+    value="">Send message</button>
+    <button class="btn btn-save btn btn-danger btn-sm" type="button" id="leave-room">Leave
+    chat</button>
+        <button type="button" class="btn-save btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">ReplyMessage</button>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <h4 class="modal-title">Reply Message</h4>
+                            <div class="form-group">
+                                <label for="recipient-phone" class="form-control-label"></label>
+                                <input type="number" class="form-control" id="recipient-phone" placeholder="phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="form-control-label"></label>
+                                <textarea class="form-control" id="message-text" placeholder="message"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Send message</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </fieldset>
+    </form>
+
+
+
+
+
+	<style>
+		* { box-sizing:border-box; }
+
+		/* basic stylings ------------------------------------------ */
+		.container 		{
+			font-family:'Roboto';
+			width:600px;
+			margin:30px auto 0;
+			display:block;
+			background:#FFF;
+			padding:10px 50px 50px;
+		}
+		h2 		 {
+			text-align:center;
+			margin-bottom:50px;
+		}
+		h2 small {
+			font-weight:normal;
+			color:#888;
+			display:block;
+		}
+		.footer 	{ text-align:center; }
+		.footer a  { color:#53B2C8; }
+
+		/* form starting stylings ------------------------------- */
+		.group 			  {
+			position:relative;
+			margin-bottom:45px;
+		}
+		input 				{
+			font-size:18px;
+			padding:10px 10px 10px 5px;
+			display:block;
+			width:300px;
+			border:none;
+			border-bottom:1px solid #757575;
+		}
+		input:focus 		{ outline:none; }
+
+		/* LABEL ======================================= */
+		label 				 {
+			color:#999;
+			font-size:18px;
+			font-weight:normal;
+			position:absolute;
+			pointer-events:none;
+			left:5px;
+			top:10px;
+			transition:0.2s ease all;
+			-moz-transition:0.2s ease all;
+			-webkit-transition:0.2s ease all;
+		}
+
+		/* active state */
+		input:focus ~ label, input:valid ~ label 		{
+			top:-20px;
+			font-size:14px;
+			color:#5264AE;
+		}
+
+		/* BOTTOM BARS ================================= */
+		.bar 	{ position:relative; display:block; width:300px; }
+		.bar:before, .bar:after 	{
+			content:'';
+			height:2px;
+			width:0;
+			bottom:1px;
+			position:absolute;
+			background:#5264AE;
+			transition:0.2s ease all;
+			-moz-transition:0.2s ease all;
+			-webkit-transition:0.2s ease all;
+		}
+		.bar:before {
+			left:50%;
+		}
+		.bar:after {
+			right:50%;
+		}
+
+		/* active state */
+		input:focus ~ .bar:before, input:focus ~ .bar:after {
+			width:50%;
+		}
+
+		/* HIGHLIGHTER ================================== */
+		.highlight {
+			position:absolute;
+			height:60%;
+			width:100px;
+			top:25%;
+			left:0;
+			pointer-events:none;
+			opacity:0.5;
+		}
+
+		/* active state */
+		input:focus ~ .highlight {
+			-webkit-animation:inputHighlighter 0.3s ease;
+			-moz-animation:inputHighlighter 0.3s ease;
+			animation:inputHighlighter 0.3s ease;
+		}
+
+		/* ANIMATIONS ================ */
+		@-webkit-keyframes inputHighlighter {
+			from { background:#5264AE; }
+			to 	{ width:0; background:transparent; }
+		}
+		@-moz-keyframes inputHighlighter {
+			from { background:#5264AE; }
+			to 	{ width:0; background:transparent; }
+		}
+		@keyframes inputHighlighter {
+			from { background:#5264AE; }
+			to 	{ width:0; background:transparent; }
+		}
+
+	</style>
+
+
+</body>
+</html>
