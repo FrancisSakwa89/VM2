@@ -54,6 +54,7 @@ public class ChatServer {
                     session.getBasicRemote().sendObject(message);
                     System.out.println("messsage sent :"+ message);
                 }
+
                 else {
                     System.out.println("Wrong info on phone number provided....");
                 }

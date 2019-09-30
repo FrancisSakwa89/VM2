@@ -23,16 +23,18 @@
       <change beforePath="$PROJECT_DIR$/../AppDesignUsingDB/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AppDesignUsingDB/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AppDesignUsingDB/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AppDesignUsingDB/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/reports/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/VendMachine2.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/VendMachine2.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VendMachine2/WEB-INF/classes/com/franco/vm/bean/VendingMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VendMachine2/WEB-INF/classes/com/franco/vm/bean/VendingMachine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VendMachine2/WEB-INF/classes/com/franco/vm/websockets/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VendMachine2/WEB-INF/classes/com/franco/vm/websockets/ChatServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/VendMachine2/WEB-INF/classes/com/franco/vm/websockets/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VendMachine2/WEB-INF/classes/com/franco/vm/websockets/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/franco/vm/bean/VendingMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/franco/vm/bean/VendingMachine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/franco/vm/websockets/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/franco/vm/websockets/ChatServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/franco/vm/websockets/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/franco/vm/websockets/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VendMachine2/WEB-INF/classes/com/franco/vm/websockets/MessageDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VendMachine2/WEB-INF/classes/com/franco/vm/websockets/MessageDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VendMachine2/WEB-INF/classes/com/franco/vm/websockets/MessageEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/VendMachine2/WEB-INF/classes/com/franco/vm/websockets/MessageEncoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VendMachine2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VendMachine2/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/VendMachine2/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/franco/vm/websockets/MessageDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/franco/vm/websockets/MessageDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/franco/vm/websockets/MessageEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/franco/vm/websockets/MessageEncoder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../my first app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../my first app/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../my first app/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../my first app/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../my first app/out/production/my first app/Bank.class" beforeDir="false" afterPath="$PROJECT_DIR$/../my first app/out/production/my first app/Bank.class" afterDir="false" />
@@ -77,46 +79,48 @@
           <entry key="project.open.time.58" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.69" value="1" />
+          <entry key="project.open.time.73" value="1" />
           <entry key="project.open.time.76" value="1" />
           <entry key="project.open.time.77" value="1" />
           <entry key="project.open.time.79" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.open.time.80" value="1" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="4" />
-          <entry key="html" value="9" />
+          <entry key="html" value="10" />
           <entry key="iml" value="1" />
-          <entry key="java" value="288" />
-          <entry key="jsp" value="42" />
+          <entry key="java" value="289" />
+          <entry key="jsp" value="43" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="4" />
-          <entry key="HTML" value="9" />
+          <entry key="HTML" value="10" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="288" />
-          <entry key="JSP" value="42" />
+          <entry key="JAVA" value="289" />
+          <entry key="JSP" value="43" />
           <entry key="XML" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="70" />
-          <entry key="html" value="1313" />
-          <entry key="java" value="11095" />
-          <entry key="jsp" value="1376" />
+          <entry key="html" value="1443" />
+          <entry key="java" value="11115" />
+          <entry key="jsp" value="1393" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1313" />
-          <entry key="JAVA" value="11095" />
-          <entry key="JSP" value="1376" />
+          <entry key="HTML" value="1443" />
+          <entry key="JAVA" value="11115" />
+          <entry key="JSP" value="1393" />
           <entry key="PLAIN_TEXT" value="70" />
           <entry key="XML" value="11" />
         </counts>
@@ -125,25 +129,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/reports/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="70" column="58" lean-forward="true" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
+            <state relative-caret-position="-608">
+              <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
               <folding>
                 <element signature="n#style#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/ChatServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="54" column="65" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
+            <state relative-caret-position="188">
+              <caret line="56" column="16" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -152,10 +154,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/Message.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageDecoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="20" column="46" lean-forward="true" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+            <state relative-caret-position="69">
+              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,8 +186,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageEncoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+            <state relative-caret-position="231">
+              <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -178,7 +198,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1515">
+            <state relative-caret-position="333">
               <caret line="101" selection-start-line="101" selection-end-line="101" />
             </state>
           </provider>
@@ -211,7 +231,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/ChatEndPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/RecieveEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/ClientSideDelayedEchoEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/webservices/ProductApi.java" />
@@ -252,16 +271,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/tutorial/ChatEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/tutorial/ChatMessageDecoder.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/me.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/Message.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/m.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/Configurator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/ClientServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/ChatServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageDecoder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageEncoder.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageDecoder.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/reports/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/ChatServer.java" />
       </list>
     </option>
   </component>
@@ -301,6 +321,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -376,12 +398,19 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="VendMachine2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VendMachine2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="reports" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,17 +428,19 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/views/products" />
-      <recent name="$PROJECT_DIR$/src/main/webapp" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.franco.vm.db" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$/src/main/java/com/franco/vm/websockets" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.franco.vm.db" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/views/reports" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/views" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/views/products" />
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -521,18 +552,20 @@
       <workItem from="1569556780211" duration="27689000" />
       <workItem from="1569663359323" duration="2092000" />
       <workItem from="1569665958099" duration="1566000" />
-      <workItem from="1569667932226" duration="4776000" />
+      <workItem from="1569667932226" duration="5392000" />
+      <workItem from="1569677993813" duration="612000" />
+      <workItem from="1569733853703" duration="7197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130813000" />
+    <option name="totallyTimeSpent" value="139238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25681818" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26439393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -542,12 +575,12 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952693" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6247961" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5791191" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.29363784" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.40130505" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32952693" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
@@ -863,13 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="118" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/me.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="556">
@@ -888,9 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -898,52 +921,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-          <folding>
-            <element signature="e#544#545#0" expanded="true" />
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="e#626#627#0" expanded="true" />
-            <element signature="e#668#669#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#732#733#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#816#817#0" expanded="true" />
-            <element signature="e#847#848#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#914#915#0" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
-            <element signature="e#979#980#0" expanded="true" />
-            <element signature="e#1008#1009#0" expanded="true" />
-            <element signature="e#1053#1054#0" expanded="true" />
-            <element signature="e#1089#1090#0" expanded="true" />
-            <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1153#1154#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1239#1240#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
+        <state relative-caret-position="333">
           <caret line="101" selection-start-line="101" selection-end-line="101" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/ChatServer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="54" column="65" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
+        <state relative-caret-position="379">
+          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -952,32 +957,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageEncoder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+        <state relative-caret-position="231">
+          <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/MessageDecoder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/reports/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="20" column="46" lean-forward="true" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="70" column="58" lean-forward="true" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
+        <state relative-caret-position="-608">
+          <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
           <folding>
             <element signature="n#style#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/franco/vm/websockets/ChatServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="56" column="16" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

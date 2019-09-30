@@ -16,7 +16,7 @@ public class MessageEncoder implements Encoder.Text<Message> {
         return Json.createObjectBuilder()
                 .add("content", message.getContent())
                 .add("from", message.getFrom())
-//                .add("recipient", message.getRecipient())
+                .add("recipient", message.getRecipient())
                 .add("status", message.isStatus())
                 .add("received", message.getReceived().toString()).build()
                 .toString();

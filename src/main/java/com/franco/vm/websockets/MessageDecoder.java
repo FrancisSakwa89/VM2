@@ -16,7 +16,7 @@ public class MessageDecoder implements Decoder.Text<Message> {
                 .readObject();
         msg.setContent(obj.getString("content"));
         msg.setFrom(obj.getString("from"));
-//        msg.setRecipient(obj.getString("recipient"));
+        msg.setRecipient(obj.getString("recipient"));
         msg.setReceived(new Date());
         msg.setStatus(obj.getBoolean("true"));
         return msg;

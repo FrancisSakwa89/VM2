@@ -56,20 +56,22 @@ body {
 	var $message;
 	var $chatWindow;
 	var phone = '';
-	var $status;
+	var status = "true";
+	var received = new Date();
 
 	function onMessageReceived(event) {
 		var msg = JSON.parse(event.data); // native API
-		var $messageLine = $('<tr><td class="received">'+ msg.received
+        // displays the message above the welcome
+		var $messageLine = $('<tr><td class="received">'+ received
 				+ '</td><td class="user label label-info">'+"from: " + msg.from
-				+ '</td><td class="message badge">' + msg.content
-				+ '</td><td class="message badge">' + msg.status
+				+ '</td><td class="message badge">' +"message: "+ msg.content
+				+ '</td><td class="message badge">' +"status: "+ status
 				+ '</td></tr>');
 		$chatWindow.append($messageLine);
 	}
     function sendMessage() {
         var msg = '{"content":"' + $message.val() +  '", "from":"'+
-            phone + '", "received":""}';
+            phone + '", "status":"'+ status+'"}';
         wsocket.send(msg);
         $message.val('').focus();
     }
@@ -157,7 +159,7 @@ body {
     <fieldset>
     <legend>Enter your message..</legend>
     <div class="controls">
-        <input type="number" class="input-block-level" placeholder="Your phone number" id="phone" style="height:60px"/>
+        <!--<input type="number" class="input-block-level" placeholder="Your phone number" id="phone" style="height:60px"/>-->
         <input type="text" class="input-block-level" placeholder="Your message..." id="content" style="height:60px"/>
         <br>
     <button type="submit" class="btn-save btn btn-primary btn-sm"

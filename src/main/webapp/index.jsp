@@ -45,6 +45,7 @@
                     <a href="all-products"><button class="btn btn-outline-primary" type="submit">All products</button></a>
                     <a href="all-stock"><button class="btn btn-outline-primary" type="submit">View Stock</button></a>
                     <a href="report"><button class="btn btn-outline-primary" type="submit">Reports</button></a>
+                    <a href="views/reports/index.html"><button class="btn btn-outline-primary" type="submit">Chat</button></a>
 
                 </div>
 
