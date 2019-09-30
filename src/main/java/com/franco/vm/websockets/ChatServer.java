@@ -3,6 +3,7 @@ package com.franco.vm.websockets;
 
 import com.google.gson.Gson;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
@@ -14,7 +15,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+@ApplicationScoped
 @ServerEndpoint(value = "/chat/{phone}" , encoders = MessageEncoder.class, decoders = MessageDecoder.class)
 public class ChatServer {
     Map<String, Session> sessionList = new HashMap<>();

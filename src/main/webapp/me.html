@@ -26,6 +26,82 @@
         });
     });
 
+
+    var wsocket;
+    var serviceLocation = "ws://localhost:8080/VendMachine2/chat/";
+    var $nickName;
+    var $message;
+    var $chatWindow;
+    var phone = '';
+    var status = "true";
+    var received = new Date();
+
+    function onMessageReceived(event) {
+        var msg = JSON.parse(event.data); // native API
+        // displays the message above the welcome
+        var $messageLine = $('<tr><td class="received">'+ received.toLocaleTimeString()
+            + '</td><td class="user label label-info">'+"from: " + msg.from
+            + '</td><td class="message badge">' +"message: "+ msg.content
+            + '</td><td class="message badge">' +"status: "+ status
+            + '</td><td class="message badge">' +"sender name: "+ $nickName.val()
+            + '</td></tr>');
+        $chatWindow.append($messageLine);
+    }
+    function sendMessage() {
+        var msg = '{"content":"' + $message.val() +  '", "from":"'+
+            phone + '", "status":"'+ status+'"}';
+        wsocket.send(msg);
+        $message.val('').focus();
+    }
+
+
+    function connectToChatserver() {
+        phone = $('#phone').val();
+        wsocket = new WebSocket(serviceLocation + phone);
+        wsocket.onmessage = onMessageReceived;
+        alert("connection opened... for "+ phone)
+    }
+
+    function leaveChat() {
+        wsocket.close();
+        // $chatWindow.empty();
+        $('.chat-wrapper').hide();
+        $('.chat-signin').show();
+        $nickName.focus();
+    }
+
+    $(document).ready(function() {
+        $nickName = $('#name');
+        $message = $('#content');
+        $chatWindow = $('#response');
+        $('.chat-wrapper').hide();
+        $message.focus();
+
+
+        $('#enterChat').click(function(evt) {
+            evt.preventDefault();
+            connectToChatserver();
+            $('.chat-wrapper h2').text('Welcome '+" your phone number is: " + phone+" and your name is: "+ $nickName.val());
+            $('.chat-signin').hide();
+            $('.chat-wrapper').show();
+            $message.focus();
+            // $ph.focus();
+
+        });
+        $('#do-chat').submit(function(evt) {
+            evt.preventDefault();
+            sendMessage()
+        });
+
+        $('#leave-chat').click(function(){
+            leaveChat();
+            alert("connection closed... for "+ phone)
+        });
+    });
+
+
+
+
 </script>
 <div class="container-fluid h-100">
     <div class="row justify-content-center h-100">
@@ -201,9 +277,10 @@
                         <div class="input-group-append">
                             <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
                         </div>
-                        <textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                        <textarea type="number" name="phone" id="phone" placeholder="phone number"></textarea>
+                        <textarea name="" class="type_msg" id="content" placeholder="Type your message..."></textarea>
                         <div class="input-group-append">
-                            <button class="input-group-text send_btn btn btn-primary"><i class="fas fa-location-arrow"></i>Send</button>
+                            <button class="input-group-text send_btn btn btn-primary" onclick="connectToChatserver();"><i class="fas fa-location-arrow"></i>Send</button>
                         </div>
                     </div>
                 </div>

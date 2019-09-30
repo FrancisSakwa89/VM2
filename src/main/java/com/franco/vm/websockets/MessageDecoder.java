@@ -6,7 +6,6 @@ import javax.websocket.DecodeException;
 import javax.websocket.Decoder;
 import javax.websocket.EndpointConfig;
 import java.io.StringReader;
-import java.util.Date;
 
 public class MessageDecoder implements Decoder.Text<Message> {
     @Override
@@ -17,7 +16,6 @@ public class MessageDecoder implements Decoder.Text<Message> {
         msg.setContent(obj.getString("content"));
         msg.setFrom(obj.getString("from"));
         msg.setRecipient(obj.getString("recipient"));
-        msg.setReceived(new Date());
         msg.setStatus(obj.getBoolean("true"));
         return msg;
     }

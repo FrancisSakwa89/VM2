@@ -5,24 +5,17 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
-@ClientEndpoint(
-        decoders = MessageDecoder.class,
-        encoders = MessageEncoder.class,
-        subprotocols = {"subprtotocol1", "subprotocol2"})
+@ClientEndpoint(encoders = MessageEncoder.class, decoders = MessageDecoder.class)
 public class ClientServer {
 
-    @OnOpen
-    public void onOpen(Session p) {
-        try {
-            p.getBasicRemote().sendText("Hello!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 
     @OnMessage
-    public void onMessage(String message) {
-        System.out.println(String.format("%s %s", "Received message: ", message));
+    public void onMessage(Message message) {
+        System.out.println(String.format("[%s:%s] %s",
+                simpleDateFormat.format(message.getReceived()), message.getFrom(), message.getContent()));
     }
+
 }

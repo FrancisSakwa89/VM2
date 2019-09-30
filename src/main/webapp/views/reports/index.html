@@ -13,41 +13,10 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <link rel = "stylesheet" type = "text/css"  href = "/css/styles.css" />
 
 </head>
-<!-- Le styles -->
-<style type="text/css">
-body {
-	padding-top: 40px;
-	padding-bottom: 40px;
-	background-color: #f5f5f5;
-}
 
-
-.form-signin .form-signin-heading,.form-signin .checkbox {
-	margin-bottom: 10px;
-}
-
-.form-signin input[type="text"],.form-signin input[type="password"] {
-	font-size: 16px;
-	height: auto;
-	margin-bottom: 15px;
-	padding: 7px 9px;
-}
-
-#chatroom {
-	font-size: 16px;
-	height: 40px;
-	line-height: 40px;
-	width: 300px;
-}
-
-.received {
-	width: 160px;
-	font-size: 10px;
-}
-</style>
 
 <script>
 	var wsocket;
@@ -62,10 +31,11 @@ body {
 	function onMessageReceived(event) {
 		var msg = JSON.parse(event.data); // native API
         // displays the message above the welcome
-		var $messageLine = $('<tr><td class="received">'+ received
+		var $messageLine = $('<tr><td class="received">'+ received.toLocaleTimeString()
 				+ '</td><td class="user label label-info">'+"from: " + msg.from
 				+ '</td><td class="message badge">' +"message: "+ msg.content
 				+ '</td><td class="message badge">' +"status: "+ status
+				+ '</td><td class="message badge">' +"sender name: "+ $nickName.val()
 				+ '</td></tr>');
 		$chatWindow.append($messageLine);
 	}
@@ -86,7 +56,7 @@ body {
 
 	function leaveChat() {
 		wsocket.close();
-		$chatWindow.empty();
+		// $chatWindow.empty();
 		$('.chat-wrapper').hide();
 		$('.chat-signin').show();
 		$nickName.focus();
@@ -98,10 +68,9 @@ body {
 		$chatWindow = $('#response');
 		$('.chat-wrapper').hide();
 		$message.focus();
-		// $ph.focus();
 
 
-		$('#enterRoom').click(function(evt) {
+		$('#enterChat').click(function(evt) {
 			evt.preventDefault();
 			connectToChatserver();
 			$('.chat-wrapper h2').text('Welcome '+" your phone number is: " + phone+" and your name is: "+ $nickName.val());
@@ -116,7 +85,7 @@ body {
 			sendMessage()
 		});
 		
-		$('#leave-room').click(function(){
+		$('#leave-chat').click(function(){
 			leaveChat();
 			alert("connection closed... for "+ phone)
 		});
@@ -146,7 +115,7 @@ body {
 			<label>Phone Number</label>
 		</div>
 
-		<button class="btn-save btn btn-success btn-sm" id="enterRoom" type="submit">Sign In</button>
+		<button class="btn-save btn btn-success btn-sm" id="enterChat" type="submit">Connect</button>
 		<button class="btn-cancel btn btn-danger btn-sm" type="reset">Cancel</button>
 	</form>
     </div>
@@ -164,11 +133,12 @@ body {
         <br>
     <button type="submit" class="btn-save btn btn-primary btn-sm"
     value="">Send message</button>
-    <button class="btn btn-save btn btn-danger btn-sm" type="button" id="leave-room">Leave
+    <button class="btn btn-save btn btn-danger btn-sm" type="button" id="leave-chat">Leave
     chat</button>
         <button type="button" class="btn-save btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">ReplyMessage</button>
 
         <!-- Modal -->
+        <div class="container chat-wrapper">
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
@@ -178,15 +148,15 @@ body {
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form id="do-chat">
                             <h4 class="modal-title">Reply Message</h4>
                             <div class="form-group">
-                                <label for="recipient-phone" class="form-control-label"></label>
-                                <input type="number" class="form-control" id="recipient-phone" placeholder="phone number">
+                                <label for="phone" class="form-control-label"></label>
+                                <input type="number" class="form-control" id="phone" placeholder="phone number">
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="form-control-label"></label>
-                                <textarea class="form-control" id="message-text" placeholder="message"></textarea>
+                                <label for="content" class="form-control-label"></label>
+                                <textarea class="form-control" id="content" placeholder="message"></textarea>
                             </div>
                         </form>
                     </div>
@@ -198,6 +168,7 @@ body {
 
             </div>
         </div>
+    </div>
 
     </div>
     </fieldset>
@@ -325,7 +296,7 @@ body {
 		}
 
 	</style>
-
+    </div>
 
 </body>
 </html>
